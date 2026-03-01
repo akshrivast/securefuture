@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --navy: #001f3f; --gold: #c5a028; --light: #f4f7f9; --green: #25D366; --red: #ff4757; --blue: #007bff; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); padding-bottom: 140px; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); padding-bottom: 160px; }
         
         /* LOGO STYLING */
         .logo-container { text-align: center; padding-top: 20px; background: var(--navy); }
@@ -20,17 +20,17 @@
 
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
 
-        /* ACTION BUTTONS (Restored) */
+        /* ACTION BUTTONS */
         .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
         .btn-top { padding: 16px; border-radius: 10px; border: none; color: white; font-weight: 800; cursor: pointer; text-decoration: none; text-align: center; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-        /* CALCULATORS (Theme Adjusted to Gold/Navy) */
+        /* SIP CALCULATOR (Navy & Gold Theme) */
         .section-tag { font-weight: 900; font-size: 12px; text-transform: uppercase; margin: 30px 0 12px; display: block; border-left: 4px solid var(--gold); padding-left: 10px; color: var(--navy); }
         .calc-card { background: var(--navy); color: white; padding: 22px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--gold); }
         .calc-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px; }
         .calc-group label { font-size: 9px; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 5px; color: var(--gold); }
-        .calc-input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--gold); font-weight: 900; text-align: center; font-size: 14px; outline: none; background: rgba(255,255,255,0.1); color: white; }
-        .calc-res { color: var(--navy); background: var(--gold); font-weight: 900; font-size: 18px; padding: 12px; text-align: center; border-radius: 8px; margin-top: 10px; }
+        .calc-input { width: 100%; padding: 10px; border-radius: 6px; border: 1.5px solid var(--gold); font-weight: 900; text-align: center; font-size: 14px; outline: none; background: rgba(255,255,255,0.1); color: white; }
+        .calc-res { color: var(--navy); background: var(--gold); font-weight: 900; font-size: 18px; padding: 15px; text-align: center; border-radius: 8px; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
         /* SERVICE GRID */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
@@ -38,25 +38,22 @@
         .card i { font-size: 24px; color: var(--gold); margin-bottom: 10px; display: block; }
         .card span { font-weight: 800; font-size: 14px; display: block; }
 
-        /* FLOATING INQUIRY BAR (Restored) */
+        /* FLOATING INQUIRY BAR */
         .floating-inquiry { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px 20px; border-top: 3px solid var(--gold); box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 1100; display: flex; gap: 10px; }
         .float-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 13px; }
         .float-submit { background: var(--green); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 900; cursor: pointer; font-size: 13px; }
 
-        /* MODAL */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; padding: 20px; overflow-y: auto; }
-        .modal-content { background: white; max-width: 450px; margin: 5% auto; border-radius: 20px; padding: 30px; text-align: center; }
-        .modal-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-family: inherit; }
+        /* FLOATING ACTION BUTTONS (Priority z-index) */
+        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; }
+        .share-float { position: fixed; bottom: 85px; left: 20px; background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--navy); z-index: 9999; border: 2px solid white; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        /* FOOTER & SOCIALS (Restored & Updated) */
         .footer { background: var(--navy); color: white; text-align: center; padding: 50px 20px 140px; }
         .social-bar { display: flex; justify-content: center; gap: 25px; margin-bottom: 25px; }
         .social-bar a { color: var(--gold); font-size: 26px; }
-        .footer-btn { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin: 10px 0; display: block; color: white; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(255,255,255,0.1); }
-        
-        /* FLOATING ACTION BUTTONS (Ultra-Priority) */
-        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; }
-        .share-float { position: fixed; bottom: 85px; left: 20px; background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--navy); z-index: 9999; border: 2px solid white; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; padding: 20px; }
+        .modal-content { background: white; max-width: 450px; margin: 15% auto; border-radius: 20px; padding: 30px; text-align: center; }
+        .modal-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-family: inherit; }
     </style>
 </head>
 <body>
@@ -77,7 +74,6 @@
     </div>
 
     <span class="section-tag">Calculators</span>
-    
     <div class="calc-card">
         <div class="calc-row">
             <div class="calc-group"><label>SIP Amount</label><input type="number" id="sipA" class="calc-input" value="5000" oninput="doSIP()"></div>
@@ -102,6 +98,9 @@
     <button class="float-submit" onclick="sendInquiry('Float')">Send WhatsApp ✅</button>
 </div>
 
+<div class="share-float" onclick="shareWebsite()"><i class="fa fa-share-alt"></i></div>
+<a href="https://wa.me/919080037313" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
 <div id="modalBox" class="modal">
     <div class="modal-content">
         <h2 id="modalTitle">Enquiry</h2>
@@ -111,16 +110,11 @@
     </div>
 </div>
 
-<div class="share-float" onclick="shareWebsite()"><i class="fa fa-share-alt"></i></div>
-<a href="https://wa.me/919080037313" class="wa-float"><i class="fab fa-whatsapp"></i></a>
-
 <footer class="footer">
-    <h2>SECUREFUTURE</h2>
     <div class="social-bar">
         <a href="https://www.linkedin.com/in/securefuture-financials-42b0783b4/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.instagram.com/securefuturefinanicial/" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">Email Support</a>
     <p>© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
 
@@ -128,9 +122,9 @@
     let activeService = "";
 
     function shareWebsite() {
-        const tagline = "🛡️ SecureFuture Financials: Expert Consulting for Insurance & Loans. Try our SIP & EMI Calculators here:";
-        if (navigator.share) { navigator.share({ title: 'SecureFuture', text: tagline, url: window.location.href }); } 
-        else { window.open(`https://wa.me/?text=${encodeURIComponent(tagline + " " + window.location.href)}`, '_blank'); }
+        const text = "🛡️ SecureFuture Financials: Plan your future here:";
+        if (navigator.share) { navigator.share({ title: 'SecureFuture', text: text, url: window.location.href }); } 
+        else { window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank'); }
     }
 
     function openModal(service) {
